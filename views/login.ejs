@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include _head %>
+  </head>
+
+  <body>
+    <div class="jumbotron jumbotron-login">
+      <div class="container">
+        <h1 class="page-header">Welcome to AMD</h1>
+        <p>Avatar Mediated Distant-care System</p>
+      </div>
+      <div class="container">
+        <div class="alert alert-<%= msg.level %>"><%= msg.content %></div>
+
+        <form method="POST" action="/login" class="form-inline">
+          <div class="form-group">
+            <input type="password" id="key" name="key" class="form-control" placeholder="Enter Password">
+          </div>
+          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

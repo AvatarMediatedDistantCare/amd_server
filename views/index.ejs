@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include _head %>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="page-header">AMD&nbsp;<small>Dashboard</small><a href="/logout" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></h1>
+
+      <div class="col-sm-6 col-md-4">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title">Actor</h3>
+          </div>
+          <div class="panel-body">
+            <div class="bs-callout bs-callout-<%= index_status.actor.browser.klass %>">
+              <h4>Browser</h4>
+              <p><%= index_status.actor.browser.status %></p>
+            </div>
+            <div class="bs-callout bs-callout-<%= index_status.actor.kinect.klass %>">
+              <h4>Kinect</h4>
+              <p><%= index_status.actor.kinect.status %></p>
+            </div>
+
+            <div class="form-actions align-right">
+              <a href="room/actor/pc" class="btn btn-sm btn-info <% if (index_status.actor.browser.klass == "success") { %>disabled<% } %>"><span class="glyphicon glyphicon-modal-window"></span>&nbsp;Join</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Observer</h3>
+          </div>
+          <div class="panel-body">
+            <div class="bs-callout bs-callout-<%= index_status.observer.browser.klass %>">
+              <h4>Browser</h4>
+              <p><%= index_status.observer.browser.status %></p>
+            </div>
+            <div class="bs-callout bs-callout-<%= index_status.observer.kinect.klass %>">
+              <h4>Kinect</h4>
+              <p><%= index_status.observer.kinect.status %></p>
+            </div>
+
+            <div class="form-actions align-right">
+              <a href="room/observer/pc" class="btn btn-sm btn-info <% if (index_status.observer.browser.klass == "success") { %>disabled<% } %>"><span class="glyphicon glyphicon-modal-window"></span>&nbsp;Join</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Audiences</h3>
+          </div>
+          <div class="panel-body">
+            <div class="bs-callout bs-callout-default">
+              <h4>the number of audiences</h4>
+              <p><%= room.count_audience() %></p>
+            </div>
+
+            <div class="form-actions align-right">
+              <a href="room/audience/pc" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-modal-window"></span>&nbsp;PC</a>
+              <!-- <a href="room/audience/mobile" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-phone"></span>&nbsp;Mobile</a> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

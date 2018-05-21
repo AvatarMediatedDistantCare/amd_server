@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include _head %>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+
+    <script type="text/javascript">
+      var join = JSON.stringify({
+        role: "<%= role %>"
+      });
+    </script>
+
+    <script src="/public/javascripts/lib/three.min.js"></script>
+    <script src="/public/javascripts/lib/stats.min.js"></script>
+<% if (role != "actor") { %>
+    <script src="/public/javascripts/lib/highcharts.js"></script>
+<% } %>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="page-header">AMD&nbsp;<small>Avatar Mediated Distant-Care System</small></h1>
+
+      <div class="col-md-8 col-sm-12 watcher">
+        <div id="container-avatar" class="col-md-12">
+          <div id="Stats-output"></div>
+        </div>
+        <div class="col-sm-12">
+          <form class="form-horizontal">
+            <label class="col-md-1 control-label">Model:</label>
+            <div class="col-md-11">
+              <select class="form-control" id="select-avatar-mesh"></select>
+            </div>
+            <label class="col-md-1 control-label">Room:</label>
+            <div class="col-md-11">
+              <select class="form-control" id="select-room-mesh"></select>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 watcher vitals">
+
+<% if (role != "actor") { %>
+        <ul class="list-group">
+          <li class="list-group-item" id="li-value-temperature">Temperature: <span class="value">N/A</span>&nbsp;°C</li>
+          <li class="list-group-item" id="li-value-humidity">Humidity: <span class="value">N/A</span>&nbsp;%</li>
+
+          <li class="list-group-item" id="li-value-heartbeat">HeartBeatRate: <span class="value">N/A</span>&nbsp;BPM</li>
+          <li class="list-group-item" id="li-graph-pulse">
+            <div id="graph-pulse"></div>
+          </li>
+        </ul>
+<% } %>
+
+        <canvas id="canvas-joints" width="320" height="240"></canvas>
+      </div>
+
+
+    </div>
+    <audio id="audio"></audio>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <p class="navbar-text">Status: <span id="websocket-status">None</span></p>
+    </nav>
+  </body>
+
+  <script src="/public/javascripts/mesh.js"></script>
+  <script src="/public/javascripts/renderer.js"></script>
+
+<% if (role != "actor") { %>
+  <script src="/public/javascripts/vital_graph.js"></script>
+  <script src="/public/javascripts/vitals.js"></script>
+<% } %>
+  <script src="/public/javascripts/webgl_main.js"></script>
+</html>
+
+
+
+

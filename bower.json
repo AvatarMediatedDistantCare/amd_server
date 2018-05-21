@@ -1,0 +1,10 @@
+{
+  "name": "youk",
+  "version": "0.0.0",
+  "authors": [
+    "You Kobayashi <sweep.3092@gmail.com>"
+  ],
+  "dependencies": {
+    "highcharts": "https://github.com/highslide-software/highcharts-release.git"
+  }
+}

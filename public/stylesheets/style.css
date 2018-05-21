@@ -1,0 +1,29 @@
+div.watcher {
+  text-align: center;
+}
+
+canvas, .infobox {
+  box-shadow: 0px 0px 5px #ccc;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  display: inline-block;
+}
+
+.container-wide {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#container-avatar {
+  margin-bottom: 30px;
+}
+
+.watcher {
+  margin-top: 30px;
+}
+
+#graph-pulse {
+  min-width: 100%;
+  height: 200px;
+  margin: 0 auto;
+}

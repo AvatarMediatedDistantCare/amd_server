@@ -40,19 +40,6 @@
       </div>
 
       <div class="col-md-4 col-sm-12 watcher vitals">
-
-<% if (role != "actor") { %>
-        <ul class="list-group">
-          <li class="list-group-item" id="li-value-temperature">Temperature: <span class="value">N/A</span>&nbsp;°C</li>
-          <li class="list-group-item" id="li-value-humidity">Humidity: <span class="value">N/A</span>&nbsp;%</li>
-
-          <li class="list-group-item" id="li-value-heartbeat">HeartBeatRate: <span class="value">N/A</span>&nbsp;BPM</li>
-          <li class="list-group-item" id="li-graph-pulse">
-            <div id="graph-pulse"></div>
-          </li>
-        </ul>
-<% } %>
-
         <canvas id="canvas-joints" width="320" height="240"></canvas>
       </div>
 
@@ -67,11 +54,6 @@
 
   <script src="/public/javascripts/mesh.js"></script>
   <script src="/public/javascripts/renderer.js"></script>
-
-<% if (role != "actor") { %>
-  <script src="/public/javascripts/vital_graph.js"></script>
-  <script src="/public/javascripts/vitals.js"></script>
-<% } %>
   <script src="/public/javascripts/webgl_main.js"></script>
 </html>
 

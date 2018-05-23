@@ -52,7 +52,7 @@ git clone git@github.com:DaiHasegawa/amd_server.git
 
 # npm instal
 cd ~
-npm install forever --global
+sudo npm install forever --global
 cd amd_server
 npm install
 ```
@@ -80,10 +80,10 @@ sudo service nginx restart
 ### 4. Start Server
 ```
 # start
-$ npm run-script production_start
+npm run-script production_start
 
 # stop
-$ npm run-script production_stop
+npm run-script production_stop
 ```
 
 

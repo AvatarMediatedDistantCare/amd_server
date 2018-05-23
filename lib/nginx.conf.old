@@ -1,0 +1,67 @@
+server {
+    listen *:80 default_server;
+    proxy_read_timeout 30m;
+
+    location /ws {
+        proxy_http_version 1.1;
+        proxy_pass http://127.0.0.1:3000/ws;
+
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Remote-Addr $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location /ws_kinect {
+        proxy_http_version 1.1;
+        proxy_pass http://127.0.0.1:3000/ws_kinect;
+
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Remote-Addr $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+    }
+}
+
+server {
+    listen *:8080 default_server;
+    proxy_read_timeout 5m;
+
+    location /ws_roomba_remote_operation {
+        proxy_http_version 1.1;
+        proxy_pass http://127.0.0.1:3001/ws_roomba_remote_operation;
+
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Remote-Addr $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location /ws_roomba_remote {
+        proxy_http_version 1.1;
+        proxy_pass http://127.0.0.1:3001/ws_roomba_remote;
+
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Remote-Addr $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location / {
+        proxy_http_version 1.1;
+        proxy_pass http://127.0.0.1:3001;
+        proxy_set_header X-Remote-Addr $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        #proxy_set_header Upgrade $http_upgrade;
+        #proxy_set_header Connection "upgrade";
+    }
+}
